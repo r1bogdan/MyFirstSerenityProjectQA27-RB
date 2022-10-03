@@ -22,5 +22,23 @@ public class SearchTest extends BaseTest{
         searchSteps.findProductWithNameInListAndOpen("Belt");
 
     }
+    @Test
+    public void loginAndSearchForThirdProductNameTest(){
+        loginSteps.doLogin(Constants.USER_EMAIl,Constants.USER_PASS);
+        searchSteps.searchForKeyword("Hoodie");
+        searchSteps.findProductWithNameInListAndOpen("Hoodie with Logo");
+    }
+    @Test
+    public void SearchForProductNameTest(){
+        searchSteps.searchForKeyword("Album");
+        searchSteps.findProductWithNameInListAndOpen("Album");
+    }
+
+
+    @Test
+    public void searchForInvalidProduct() {
+        searchSteps.searchForKeyword("!belt");
+        searchSteps.findProductWithInvalidName();
+    }
 }
 

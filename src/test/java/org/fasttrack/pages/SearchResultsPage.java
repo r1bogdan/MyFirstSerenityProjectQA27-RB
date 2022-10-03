@@ -10,6 +10,9 @@ public class SearchResultsPage extends BasePage {
 
     @FindBy(css = ".content-area .entry-title a")
     private List<WebElementFacade> listOfProductNames;
+    @FindBy(css="#main > section > div > p")
+    public WebElementFacade errorSearchMessage;
+
 
     public boolean findProductInGridAndOpen(String productName){
         for (WebElementFacade element : listOfProductNames){
@@ -19,5 +22,9 @@ public class SearchResultsPage extends BasePage {
             }
         }
         return false;
+    }
+    public String getSearchForInvalidProduct(){
+        return errorSearchMessage.getText();
+
     }
 }

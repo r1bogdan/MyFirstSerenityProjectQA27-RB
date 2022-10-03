@@ -24,5 +24,8 @@ public class SearchSteps extends BaseSteps{
         searchForKeyword(productName);
         findProductWithNameInListAndOpen(productName);
     }
-
+    @Step
+    public void findProductWithInvalidName(){
+        Assert.assertEquals("Sorry, but nothing matched your search terms. Please try again with some different keywords.",searchResultsPage.getSearchForInvalidProduct());
+    }
 }

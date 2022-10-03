@@ -24,6 +24,9 @@ public class HomePage extends BasePage {
     @FindBy(css = "#masthead > div > div.header-top.cl > div.search-box > form > button > i")
     private WebElementFacade searchButton2;
 
+    @FindBy(css="#primary > main > div.woocommerce-message > a")
+    private WebElementFacade CartMenuButton;
+
 
 
 
@@ -47,5 +50,7 @@ public class HomePage extends BasePage {
         clickOn(searchButton2);
     }
 
-
+    public void clickCartMenuButton(){
+        clickOn(CartMenuButton);
+    }
 }

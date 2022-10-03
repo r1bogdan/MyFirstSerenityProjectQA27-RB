@@ -10,16 +10,27 @@ public class CartSteps extends BaseSteps{
     public void addProductToCart() {
         productPage.clickAddToCart();
     }
+
+
     @Step
     public void checkSuccessMessage(String productName){
         Assert.assertEquals(("“" + productName + "” has been added to your cart.").toLowerCase(), cartPage.getSuccessMessage().toLowerCase());
     }
-
-//    @Steps
-//    public void emptyCart(){
-//        cartPage.removeProducts();
-//    }
-
+    @Step
+    public void viewCart() {
+        homePage.clickCartMenuButton();
+    }
+    @Step
+    public void proceedToCheckOut() {
+        cartPage.clickProceedToCheckOutButton();
+    }
+    public void removeFromCart() {
+        cartPage.removeFromCartButton();
+    }
+    @Step
+    public void viewCartWhenProductAdded() {
+        cartPage.clickViewCartButton();
+    }
     @Step
     public void checkSubtotalPrice(){
         Assert.assertTrue(cartPage.checkIfSubtotalMatches());

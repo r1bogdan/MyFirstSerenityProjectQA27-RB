@@ -24,5 +24,12 @@ public class LoginTest extends BaseTest{
         loginSteps.verifyUserNotLoggedIn();
     }
 
-
+    @Test
+    public void loginAsAdminTest() {
+        loginSteps.navigateToLoginPage();
+        loginSteps.setUserEmail("admin");
+        loginSteps.setPassword("parola11");
+        loginSteps.clickLogin();
+        loginSteps.verifyUserIsLoggedIn( "admin");
+    }
 }
